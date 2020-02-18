@@ -12,7 +12,7 @@ namespace Extensions.MV
     {
 
         /// <summary>
-        /// Returns de Description of the Enum
+        /// Returns the Description of the Enum
         /// <para/>
         /// If the enum doesn't have a Description, returns the toString of the Enum
         /// </summary>
@@ -32,6 +32,33 @@ namespace Extensions.MV
                 return value.ToString();
         }
 
+        /// <summary>
+        /// Returns the EnumValue of the given description.
+        /// <para/>
+        /// How to use: var response = typeof(MyEnum).GetEnumFromDescription("MyDescription");
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static Enum GetEnumByDescription(this Type type, string description)
+        {
+            if(!type.IsEnum) throw new InvalidOperationException();
+            foreach(var field in type.GetFields())
+            {
+                var attribute = Attribute.GetCustomAttribute(field,
+                    typeof(DescriptionAttribute)) as DescriptionAttribute;
+                if(attribute != null)
+                {
+                    if(attribute.Description == description)
+                        return (Enum)field.GetValue(null);
+                }
+                else
+                {
+                    if(field.Name == description)
+                        return (Enum)field.GetValue(null);
+                }
+            }
+            throw new ArgumentException("Not found.", nameof(description));
+        }
 
         /// <summary>
         /// Check if a certain enum value contains the enum input. 

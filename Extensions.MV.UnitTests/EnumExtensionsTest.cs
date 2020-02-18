@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Xunit;
 
 namespace Extensions.MV.UnitTests
@@ -144,6 +145,16 @@ namespace Extensions.MV.UnitTests
             Assert.False(valueContainsComparison);
         }
 
+        [Fact]
+        public void TestEnumGetEnumByDescription()
+        {
+            //Act
+            var response = typeof(EnumWithDescription).GetEnumByDescription("Red");
+            var enumResponse = (EnumWithDescription)response;
+            //Assert
+            Assert.True(enumResponse == EnumWithDescription.Red);
+        }
+
     }
 
     public enum TestEnum {
@@ -151,5 +162,15 @@ namespace Extensions.MV.UnitTests
         value2 = 2,
         value4 = 4,
         value8 = 8
+    }
+    
+    public enum EnumWithDescription
+    {
+        [Description("Red")]
+        Red = 1,
+        [Description("Yellow")]
+        Yellow = 2,
+        [Description("Green")]
+        Green = 3
     }
 }
