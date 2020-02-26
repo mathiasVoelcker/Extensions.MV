@@ -149,7 +149,7 @@ namespace Extensions.MV.UnitTests
         public void TestEnumGetEnumByDescription()
         {
             //Act
-            var response = typeof(EnumWithDescription).GetEnumByDescription("Red");
+            var response = typeof(EnumWithDescription).GetValueByDescription("Red");
             var enumResponse = (EnumWithDescription)response;
             //Assert
             Assert.True(enumResponse == EnumWithDescription.Red);

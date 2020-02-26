@@ -35,11 +35,13 @@ namespace Extensions.MV
         /// <summary>
         /// Returns the EnumValue of the given description.
         /// <para/>
-        /// How to use: var response = typeof(MyEnum).GetEnumFromDescription("MyDescription");
+        /// How to use: var response = typeof(MyEnum).GetValueByDescription("MyDescription");
+        /// <line/>
+        /// var value = (MyEnum)response;
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static Enum GetEnumByDescription(this Type type, string description)
+        public static Enum GetValueByDescription(this Type type, string description)
         {
             if(!type.IsEnum) throw new InvalidOperationException();
             foreach(var field in type.GetFields())
@@ -57,7 +59,9 @@ namespace Extensions.MV
                         return (Enum)field.GetValue(null);
                 }
             }
-            throw new ArgumentException("Not found.", nameof(description));
+            throw new ArgumentException(
+                string.Format("Not found enum with description {0}.", description), 
+                nameof(description));
         }
 
         /// <summary>
