@@ -36,6 +36,9 @@ namespace Extensions.MV
             return text;
         }
 
+        ///<sumary>
+        ///Adds a given text to the start and the end of the string
+        ///</sumary>
         public static string SurroundWith(this string text, string value)
         {
             if (text.IsNullOrEmpty()) return null;
@@ -58,6 +61,11 @@ namespace Extensions.MV
             }
         }
 
+        ///<summary>
+        ///Capitalize every word on a given string.
+        ///<para/> If param <c>wordsLowerCase</c> is used, every word on array <c>wordsLowerCase</c> won't be Capitalized, but as lower case
+        ///<para/> If param <c>wordsUpperCase</c> is used, every word on array <c>wordsUpperCase</c> won't be Capitalized, but as upper case
+        ///</summary>
         public static string CapitalizeSentence(this string text, string[] wordsLowerCase = null, string[] wordsUpperCase = null)
         {
             if (text.IsNullOrEmpty()) return text;

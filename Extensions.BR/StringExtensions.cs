@@ -85,6 +85,9 @@ namespace Extensions.BR
             return cpf.EndsWith(Digito);
         }
 
+        ///<summary>
+        ///Executa o método Extensions.MV.CapitalizeSentence, incluindo as preposições do português como palavras em caixa baixa
+        ///</summary>
         public static string CapitalizarFrase(this string text, string[] wordsLowerCase = null, string[] wordsUpperCase = null)
         {
             if (text.IsNullOrEmpty()) return text;
