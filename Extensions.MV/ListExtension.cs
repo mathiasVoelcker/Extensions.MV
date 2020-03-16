@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Extensions.MV
 {
+    ///<summary>
+    ///Group of extension methods for Lists
+    ///</summary>
     public static class ListExtension
     {
         ///<summary>

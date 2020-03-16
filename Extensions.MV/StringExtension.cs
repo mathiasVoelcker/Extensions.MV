@@ -8,8 +8,15 @@ using System.Text.RegularExpressions;
 
 namespace Extensions.MV
 {
+
+    ///<summary>
+    ///Group of extension methods for strings
+    ///</summary>
     public static class StringExtension
     {
+        ///<summary>
+        ///Checks if a given string contains only number. If any char is not numeric, the return is false.
+        ///</summary>
         public static bool IsDigitOnly(this string text)
         {
             foreach (char c in text)
@@ -20,16 +27,25 @@ namespace Extensions.MV
             return true;
         }
 
+        ///<summary>
+        ///A simpler way to check if a string is null or empty
+        ///</summary>
         public static bool IsNullOrEmpty(this string text)
         {
             return string.IsNullOrEmpty(text);
         }
 
+        ///<summary>
+        ///A simpler way to check if a string is null or whiteSpace
+        ///</summary>
         public static bool IsNullOrWhiteSpace(this string text)
         {
             return string.IsNullOrWhiteSpace(text);
         }
 
+        ///<summary>
+        ///Skip a line, then add a given string 
+        ///</summary>
         public static string AddNewLine(this string text, string newLine)
         {
             text = text + Environment.NewLine + newLine;
@@ -82,6 +98,9 @@ namespace Extensions.MV
             return sentence.TrimEnd();
         }
 
+        ///<summary>
+        ///Converts the first char of a string to UpperCase
+        ///</summary>
         public static string Capitalize(this string text)
         {
             if (text.IsNullOrEmpty()) return "";
@@ -91,15 +110,24 @@ namespace Extensions.MV
             return fisrtLetter + otherLetters;
         }
 
+        ///<summary>
+        ///Check if the list of strings contains a given string. It is not case-sensitive
+        ///</summary>
         public static bool ContainsCaseIgnored(this string[] textList, string value)
         {
             return textList.Any(x => x.ToUpper() == value.ToUpper());
         }
 
+        ///<summary>
+        ///Check if the string contains a given string. It is not case-sensitive
+        ///</summary>
         public static bool ContainsCaseIgnored(this string text, string value) {
             return text.ToUpper().Contains(value.ToUpper());
         }
 
+        ///<summary>
+        ///Split the string in every occurrence of a given string
+        ///</summary>
         public static string[] Split(this string text, string value)
         {
             try
@@ -111,12 +139,18 @@ namespace Extensions.MV
             }
         }
 
+        ///<summary>
+        ///Remove all chars that are not letters or numbers
+        ///</summary>
         public static string RemoveNonAlfanumeric(this string text) 
         {
             Regex rgx = new Regex("[^a-zA-Z0-9 -]");
             return rgx.Replace(text, ""); 
         }
 
+        ///<summary>
+        ///Returns a decimal number. Returns 0 if the string is not a valid number.
+        ///</summary>
         public static decimal ToDecimal(this string text)
         {
             try
@@ -128,6 +162,9 @@ namespace Extensions.MV
             }
         }
 
+        ///<summary>
+        ///Returns a integer number. Returns 0 if the string is not a valid number.
+        ///</summary>
         public static int ToInt(this string text)
         {
             int number = 0;

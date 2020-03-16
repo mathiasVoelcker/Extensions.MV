@@ -2,6 +2,9 @@ using System;
 
 namespace Extensions.MV
 {
+    ///<summary>
+    ///Group of extension methods for strings
+    ///</summary>
     public static class TimeSpanExtension
     {
         ///<summary>

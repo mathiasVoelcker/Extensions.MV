@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Extensions.MV
 {
+    ///<summary>
+    ///Group of extension methods for Enums
+    ///</summary>
     public static class EnumExtension
     {
 
@@ -39,8 +42,6 @@ namespace Extensions.MV
         /// <line/>
         /// var value = (MyEnum)response;
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public static Enum GetValueByDescription(this Type type, string description)
         {
             if(!type.IsEnum) throw new InvalidOperationException();

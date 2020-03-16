@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Extensions.MV
 {
+    ///<summary>
+    ///Group of extension methods for Exceptions
+    ///</summary>
     public static class ExceptionExtension
     {
         /// <summary>
