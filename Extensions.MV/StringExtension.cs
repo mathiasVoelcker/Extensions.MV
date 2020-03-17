@@ -171,5 +171,19 @@ namespace Extensions.MV
             int.TryParse(text, out number);
             return number;
         }
+
+        ///<summary>
+        ///Check if a string is a valid email
+        ///</summary>
+        public static bool IsValidEmail(this string text)
+        {
+            try {
+                var addr = new System.Net.Mail.MailAddress(text);
+                return addr.Address == text;
+            }
+            catch {
+                return false;
+            }
+        }
     }
 }
