@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Extensions.BR
 {
+    ///<summary>
+    ///Grupo de métodos de extensão para DateTime
+    ///</summary>
     public static class StringExtensions
     {
         private static string[] PREPOSICOES = new string[] { "e", "de", "da", "das", "do", "dos", "com", "na", "nas", "no", "nos" };
@@ -15,6 +18,9 @@ namespace Extensions.BR
         private static string comAcentos = "ÄÅÁÂÀÃäáâàãÉÊËÈéêëèÍÎÏÌíîïìÖÓÔÒÕöóôòõÜÚÛüúûùÇç";
         private static string semAcentos = "AAAAAAaaaaaEEEEeeeeIIIIiiiiOOOOOoooooUUUuuuuCc";
 
+        /// <summary>
+        /// Retorna a string sem acentos
+        /// </summary>
         public static string RemoverAcentos(this string text)
         {
             for (int i = 0; i < comAcentos.Length; i++)

@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Extensions.BR
 {
+
+    ///<summary>
+    ///Grupo de métodos de extensão para Decimal
+    ///</summary>
     public static class DecimalExtensions
     {
         /// <summary>
         /// Converte um valor decimal para uma string R$ 9.999,99
         /// </summary>
-        /// <param name="valor"></param>
-        /// <returns></returns>
         public static string ValorMonetario(this decimal valor)
         {
             string valorFormatado = "";

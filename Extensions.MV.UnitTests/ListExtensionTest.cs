@@ -20,7 +20,7 @@ namespace Extensions.MV.UnitTests
             var areTheSame = list1.AnyEqualElement(list2, (x, y) => x.Id == y.Id);
             
             //Assert
-            Assert.Equal(true, areTheSame);
+            Assert.True(areTheSame);
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace Extensions.MV.UnitTests
             var areTheSame = list1.AnyEqualElement(list2, (x, y) => x.Id == y.Id);
             
             //Assert
-            Assert.Equal(false, areTheSame);
+            Assert.False(areTheSame);
         }
 
         [Fact]
@@ -56,7 +56,7 @@ namespace Extensions.MV.UnitTests
             var areTheSame = list1.AnyEqualElement(list2, (x, y) => x.Name == y.Name);
             
             //Assert
-            Assert.Equal(true, areTheSame);
+            Assert.True(areTheSame);
         }
 
         [Fact]
@@ -74,7 +74,7 @@ namespace Extensions.MV.UnitTests
             var areTheSame = list1.AnyEqualElement(list2);
             
             //Assert
-            Assert.Equal(false, areTheSame);
+            Assert.False(false);
         }
 
         [Fact]
@@ -92,7 +92,7 @@ namespace Extensions.MV.UnitTests
             var areTheSame = list1.AnyEqualElement(list2);
             
             //Assert
-            Assert.Equal(true, areTheSame);
+            Assert.True(areTheSame);
         }
     }
 
