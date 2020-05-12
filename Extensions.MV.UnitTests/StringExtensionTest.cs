@@ -55,5 +55,44 @@ namespace Extensions.MV.UnitTests
             //Assert
             Assert.False(isValidEmail);
         }
+
+        [Fact]
+        public void TestShortenText_Shorten()
+        {
+            //Arrange
+            var text = "abcabcabc";
+
+            //Act
+            text = text.ShortenText(6);
+
+            //Assert
+            Assert.Equal("abc...", text);
+        }
+
+        [Fact]
+        public void TestShortenText_SameSize()
+        {
+            //Arrange
+            var text = "abcabcabc";
+
+            //Act
+            text = text.ShortenText(9);
+
+            //Assert
+            Assert.Equal("abcabcabc", text);
+        }
+
+        [Fact]
+        public void TestShortenText_LengthGreater()
+        {
+            //Arrange
+            var text = "abcabcabc";
+
+            //Act
+            text = text.ShortenText(12);
+
+            //Assert
+            Assert.Equal("abcabcabc", text);
+        }
     }
 }

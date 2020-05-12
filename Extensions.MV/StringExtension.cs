@@ -185,5 +185,28 @@ namespace Extensions.MV
                 return false;
             }
         }
+
+        ///<summary>
+        ///Shorten string to a given length, adding '...' at the end
+        ///</summary>
+        public static string ShortenText(this string text, int maxLenght)
+        {
+            if (maxLenght <= 3)
+                throw new LengthToShortException();
+
+            if (text.Length > maxLenght)
+            {
+                text = text.Substring(0, maxLenght - 3);
+                text += "...";
+            }
+
+            return text;
+        }
+    }
+
+    public class LengthToShortException : Exception
+    {
+        private const string MESSAGE = "Max length should be greater than 3";
+        public LengthToShortException() : base(MESSAGE) { }
     }
 }
