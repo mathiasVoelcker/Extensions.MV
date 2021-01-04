@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,9 @@ namespace Extensions.BR
         {
             string valorFormatado = "";
             if (valor < 0) 
-                valorFormatado = string.Format("(R$ {0:#,0.00})", valor * -1);
+                valorFormatado = string.Format(CultureInfo.GetCultureInfo("pt-BR"), "(R$ {0:#,0.00})", valor * -1);
             else
-                valorFormatado = string.Format("R$ {0:#,0.00}", valor);
+                valorFormatado = string.Format(CultureInfo.GetCultureInfo("pt-BR"), "R$ {0:#,0.00}", valor);
             return valorFormatado;
         }
     }

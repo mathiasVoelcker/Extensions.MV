@@ -28,5 +28,29 @@ namespace Extensions.MV.UnitTests
             //Assert
             Assert.Equal("(R$ 5,00)", valorMonetario);
         }
+
+        [Fact]
+        public void TestValorMonetario_Milhar() {
+            //Arrange
+            var number = 5000m;
+
+            //Act
+            var valorMonetario = number.ValorMonetario();
+
+            //Assert
+            Assert.Equal("R$ 5.000,00", valorMonetario);
+        }
+
+        [Fact]
+        public void TestValorMonetario_Milhao() {
+            //Arrange
+            var number = 5000000m;
+
+            //Act
+            var valorMonetario = number.ValorMonetario();
+
+            //Assert
+            Assert.Equal("R$ 5.000.000,00", valorMonetario);
+        }
     }
 }
